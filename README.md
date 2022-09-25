@@ -1,7 +1,11 @@
 # World of Games
 
+This is a testing project for Devops course made by [devopsexperts](https://www.devopsexperts.co.il/) \
+And lead by [danny gitelman](https://www.linkedin.com/in/dannygitelman)
+
 ## Live.py
 Create a new python program, call it *Live.py*.
+The file will include the following functions:
 
 ### welcome(name) 
 This function has a person name as an input and returns a string in the following layout:

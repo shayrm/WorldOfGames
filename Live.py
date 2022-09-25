@@ -1,9 +1,27 @@
 
 
 def welcome(name):
-    return f"Hello {name} and welcome to the World of Games (WoG).\n Here you can find many cool games to play."
+    print (f"Hello {name} and welcome to the World of Games (WoG).\n Here you can find many cool games to play.")
 
+def generic_error():
+    print("Not a good selection, please enter a number! Try again.")
+    return
 
+def game_level():
+    while True:
+        try:
+            game_level = int(input("Please choose game difficulty from 1 to 5:"))
+            if (game_level <= 0) or (game_level >= 6):
+                generic_error()
+                continue
+            else:
+                print(f"got the option {game_level}")
+        except ValueError:
+            generic_error()
+            continue
+        else:
+            return game_level
+            break
 def load_game():
     message = """
     Please choose a game to play: 
@@ -20,5 +38,18 @@ def load_game():
 
     print(message)
 
+    while True:
+        try:
+            user_choice = int(input("Please enter your choice:"))
+            if (user_choice <=0) or (user_choice >=4):
+                generic_error()
+                continue
+            else:
+                print(f"got the option {user_choice}")
+        except ValueError:
+            generic_error()
+            continue
+        else:
+            return user_choice
+            break
 
-load_game()
