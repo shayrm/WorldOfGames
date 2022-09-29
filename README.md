@@ -46,7 +46,4 @@ print(welcome("Guy"))
 load_game()
 ```
 
-What to send me? 
 
-A compressed zip file containing the following: 
-1. MainGame.py 2. Live.py 
