@@ -1,5 +1,6 @@
 
 def welcome(name):
+    # you will have syntax error here, extra space
     print (f"Hello {name} and welcome to the World of Games (WoG).\n Here you can find many cool games to play.")
 
 def generic_error():
@@ -38,13 +39,13 @@ def load_game():
     
     """
 
-    max_option = 4
+    max_option = 4 # what if new game will be added, will require everytime to update this?
     game_option = input_validation(message_options, max_option)
 
     message_level = """
     Please choose game difficulty from 1 to 5:
     """
-    max_difficulty = 6
+    max_difficulty = 6 # the same as game options
     game_level = input_validation(message_level, max_difficulty)
 
     return game_option, game_level
