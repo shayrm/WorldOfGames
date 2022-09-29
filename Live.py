@@ -1,6 +1,5 @@
 
 def welcome(name):
-    # you will have syntax error here, extra space
     print (f"Hello {name} and welcome to the World of Games (WoG).\n Here you can find many cool games to play.")
 
 def generic_error():
