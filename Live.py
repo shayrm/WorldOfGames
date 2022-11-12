@@ -24,22 +24,23 @@ def input_validation(message, max_value):
 
 def load_game():
     game_options = {
-        "1": "Memory Game -\n a sequence of numbers will appear for 1 second and you have to guess it back",
-        "2": "Guess Game -\n guess a number and see if you chose like the computer",
-        "3": "Currency Roulette -\n try and guess the value of a random amount of USD in ILS"
+        "Memory Game": "a sequence of numbers will appear for 1 second and you have to guess it back",
+        "Guess Game": "Guess a number and see if you chose like the computer",
+        "Currency Roulette": "Try and guess the value of a random amount of USD in ILS"
     }
-
+    
+    game_index = 1
     for k,v in game_options.items():
-        print(f"{k}. {v} \n")
+        if game_index < len(k):
+            print(f"{game_index}. {k} - {v} \n")
+            game_index += 1
 
     game_message = "Please enter your option: \n"
 
     max_option = len(game_options.keys()) + 1
     game_option = input_validation(game_message, max_option)
 
-    message_level = """
-    Please choose game difficulty from 1 to 5:
-    """
+    message_level = "Please choose game difficulty from 1 to 5:"
     max_difficulty = 6
     game_level = input_validation(message_level, max_difficulty)
 
