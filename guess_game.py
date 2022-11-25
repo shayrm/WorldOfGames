@@ -50,8 +50,8 @@ class Guess_Game:
     else:
       print("Nop, you missed it. This is not the chosen number")
             
-def main():
-  game1 = Guess_Game(5)
+def main(difficulty):
+  game1 = Guess_Game(difficulty)
   game1.play()  
 
 if __name__ == "__main__":
