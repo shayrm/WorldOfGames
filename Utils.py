@@ -14,7 +14,12 @@ import os
 SCORES_FILE_NAME="scores.txt"
 USER_NAME="Shay"
 BAD_RETURN_CODE=0
+HOST_IP="127.0.0.1"
+HOST_FLASK_PORT=5000
+HOME_URL=f"http://{HOST_IP}:{HOST_FLASK_PORT}/"
 
+# WEB PAGE ELEMENT
+ELEMENT_ID_SCORE="score"
 def screen_cleaner():
   # Clearing the Screen
   os.system('cls')
