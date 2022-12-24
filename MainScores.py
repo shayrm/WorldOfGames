@@ -32,16 +32,19 @@ following:
 """
 
 from flask import Flask, render_template
+import score, Utils
+
 
 app = Flask(__name__)
 
 def get_name():
-  name = "Shay"
+  name = Utils.USER_NAME
   return name
 
 def get_score():
-  score = 100
-  return score
+  file_name = Utils.SCORES_FILE_NAME
+  last_score = score.get_last_line(file_name)
+  return last_score 
 
 @app.route("/")
 def home():

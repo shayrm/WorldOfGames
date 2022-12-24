@@ -11,13 +11,11 @@ before a new game starts).
 import os
 
 # Globals
-SCORES_FILE_NAME=scores.txt
+SCORES_FILE_NAME="scores.txt"
+USER_NAME="Shay"
 BAD_RETURN_CODE=0
 
 def screen_cleaner():
   # Clearing the Screen
   os.system('cls')
 
-
-def main():
-  pass

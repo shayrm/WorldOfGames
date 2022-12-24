@@ -1,0 +1,5 @@
+This is the scores file: 
+0
+14
+28
+42
