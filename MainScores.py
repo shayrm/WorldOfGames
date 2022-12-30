@@ -8,6 +8,8 @@ Methods
 1. score_server - This function will serve the score. It will read the score from the scores file
 and will return an HTML that will be as follows:
 
+For that I used the `render_template` method with two html files that stores in `templates` directory.
+
 <html>
   <head>
     <title>Scores Game</title>
@@ -30,6 +32,10 @@ following:
 </html>
 
 """
+
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 from flask import Flask, render_template
 import score, Utils
@@ -65,7 +71,9 @@ def page_not_found(e):
 def page_not_found(e):
     return render_template('error.html', error = "No score and Internal Server Error"), 500
 
+def main():
+  app.run()
 
 if __name__ == "__main__":
-  app.run()
+  main()
   

@@ -1,5 +1,6 @@
 
 import random
+import score
 
 class Guess_Game:
   """
@@ -47,6 +48,7 @@ class Guess_Game:
       print("\n========================================")
       print(f"We got a winner!!!\n Our secret number {self.secret_number} is equal to your guessed number {self.user_guess}")
       print("========================================\n")
+      score.main(self.difficulty)
     else:
       print("Nop, you missed it. This is not the chosen number")
             

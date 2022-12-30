@@ -34,7 +34,7 @@ def get_last_line(source_file):
       
     last_score = file.readline().decode()
       
-  print(f"this is the last score: {last_score}")
+  #print(f"this is the last score: {last_score}")
   return int(last_score)
 
 
@@ -44,14 +44,14 @@ def add_score(difficulty, score_file):
   points_of_winning = (difficulty * 3) + 5
   last_score = get_last_line(score_file)
   new_score = int(last_score) + int(points_of_winning)
-  print(f"user got a new score {new_score}")
+  print(f"\nUser got a new score {new_score}!!!")
   
   with open(score_file, 'a') as file:
     file.write("\n" + str(new_score))
   
-  print("new score added to score file")
+  print("\nA new score was added to the score file")
   
-def main():
+def main(difficulty):
   file_name=Utils.SCORES_FILE_NAME
   #Create scores file if it does not exist
   # add score 0 to the file
@@ -59,7 +59,7 @@ def main():
     with open(file_name, 'w') as file:
       file.write("This is the scores file: \n0")  
     
-  add_score(3, file_name)
+  add_score(difficulty, file_name)
   
   with open(file_name, 'r') as file:
     data = file.read()
