@@ -1,0 +1,2 @@
+Flask==2.1.2
+-e git+https://github.com/Rookout/python-flask.git@e56318f9c84978ecdaeaaff4aa819dc86f5509c7#egg=Flask_OpenTracing

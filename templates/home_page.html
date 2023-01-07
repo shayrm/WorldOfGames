@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>Scores Game</title>
+</head>
+
+<body>
+
+  <style>
+    #text {
+      font-family: monospace;
+      font-size: x-large;
+      white-space: pre;
+    }
+
+    #text.typing {
+      animation: typing 3s linear infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+    }
+  </style>
+  <h1>
+    <div id="typing" style="color:green"> Scores Game </div>
+  </h1>
+  <h2><div id="typing"> Hello {{ name }} !!!</div></h2>
+  <div id="text">
+  </div>
+
+  <h3>The score is <div id="score">{{ score }}</div>
+  </h3>
+
+  <script>
+    // Set the text to be printed
+    const text = "Welcome to the the World of games...";
+
+    // Select the element that will contain the text
+    const element = document.getElementById("text");
+
+    // Set the text to be empty initially
+    element.innerHTML = "";
+
+    // Set the class to "typing" to start the animation
+    element.classList.add("typing");
+
+    // Loop through the text and print each letter with a delay
+    let i = 0;
+    const interval = setInterval(() => {
+      element.innerHTML += text[i];
+      i++;
+      if (i >= text.length) {
+        clearInterval(interval);
+      }
+    }, 50);
+  </script>
+</body>
+
+</html>
