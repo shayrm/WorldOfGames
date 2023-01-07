@@ -4,8 +4,6 @@ from Live import welcome, load_game
 import guess_game, MainScores, e2e, Utils
 
 
-
-
 def start():
     welcome(Utils.USER_NAME)
     [game_selected, game_level] = load_game()
