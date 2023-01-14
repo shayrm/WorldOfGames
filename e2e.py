@@ -63,15 +63,16 @@ def test_scores_service(app_url, element_id):
   return score_results
   
 def main():
-  app_url = Utils.HOME_URL
-  element_id = Utils.ELEMENT_ID_SCORE
+  start_obj = Utils()
+  app_url = start_obj.HOME_URL
+  element_id = start_obj.ELEMENT_ID_SCORE
   test_result = "FAILED"
   score_result = test_scores_service(app_url, element_id)
   if score_result:
     test_result = "PASS"
   
-  print(f"{Utils.DT_STRING} | Test result = {test_result}. | Got the latest results: {score_result} | Error info: {Utils.ERROR_MSG}")
-  Utils.reset_error_msg()  
+  print(f"{start_obj.DT_STRING} | Test result = {test_result}. | Got the latest results: {score_result} | Error info: {start_obj.ERROR_MSG}")
+  start_obj.reset_error_msg()  
   
   
 if __name__ == "__main__":

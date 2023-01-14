@@ -17,7 +17,7 @@ the current score.
 
 """
 import os.path
-import Utils
+#import Utils
 
 #
 # get the last results reported in the score file
@@ -51,8 +51,8 @@ def add_score(difficulty, score_file):
   
   print("\nA new score was added to the score file")
   
-def main(difficulty):
-  file_name=Utils.SCORES_FILE_NAME
+def main(utils_obj, difficulty):
+  file_name=utils_obj.SCORES_FILE_NAME
   #Create scores file if it does not exist
   # add score 0 to the file
   if not os.path.isfile(file_name):

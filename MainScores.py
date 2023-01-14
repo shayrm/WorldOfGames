@@ -43,19 +43,20 @@ import score, Utils
 
 app = Flask(__name__)
 
-def get_name():
-  name = Utils.USER_NAME
+def get_name(utils_obj):
+  name = utils_obj.USER_NAME
   return name
 
-def get_score():
-  file_name = Utils.SCORES_FILE_NAME
+def get_score(utils_obj):
+  file_name = utils_obj.SCORES_FILE_NAME
   last_score = score.get_last_line(file_name)
   return last_score 
 
 @app.route("/")
 def home():
-  name = get_name()
-  score = get_score()
+  utils_obj = Utils.main()
+  name = get_name(utils_obj)
+  score = get_score(utils_obj)
   return render_template('home_page.html', name = name, score = score)
 
 #@app.route("/<name>")

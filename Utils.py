@@ -41,7 +41,9 @@ class Utils:
     self.HOME_URL=f"http://{self.HOST_IP}:{self.HOST_FLASK_PORT}/"
     self.HOME_PATH = os.path.abspath("./")
     self.REPLAY = True
+    self.OS_NAME = self.find_os()        
     self.PLATFORM = os.getenv("PLATFORM")
+    self.first_round = True
     
     # Set test to True only on lab env
     if self.PLATFORM == "lab":
@@ -60,25 +62,44 @@ class Utils:
     
     # Generic Error message
     self.ERROR_MSG = "No Errors"
-    
+  
+  ##########################
+  # Support functions
+  ##########################
+  
+  def game_options(slef):
+    game_options = {
+        "Guess Game": "Guess a number and see if you chose like the computer\n",
+        "Memory Game": "a sequence of numbers will appear for 1 second and you have to guess it back\n",
+        "Currency Roulette": "Try and guess the value of a random amount of USD in ILS\n"
+    }
+    return game_options
+  
+  # sleep for x seconds
+  def time_out(self, x):
+    sleep(x)
+      
   def reset_error_msg(self):
     self.ERROR_MSG = "No Errors"
     
   def screen_cleaner(self):
     # Clearing the Screen
-    os.system('cls')
+    if self.OS_NAME == "Windows":
+      os.system('cls')
+    else:
+      os.system('clear')
     
   def start_web_server(self):
-    #web_app = f"py.exe {MAIN_DIRECTORY}\MainScores.py"
-    self.web_app = f"{self.MAIN_DIRECTORY}\MainScores.py"
+    if self.OS_NAME == "Windows":
+      self.web_app = f"{self.MAIN_DIRECTORY}\MainScores.py"
+      subprocess.Popen(["py.exe", self.web_app], stdin=None, stdout=None, stderr=None)
+    else:
+      self.web_app = f"{self.MAIN_DIRECTORY}/MainScores.py"
+      subprocess.Popen(["python3", self.web_app], stdin=None, stdout=None, stderr=None)
+      subprocess.check_output(['echo "check subprocess outout"'], shell=True, stderr=subprocess.STDOUT)
+    
     print(f"\nStarting the web app from: {self.web_app}")
-    #thr =  threading.Thread(target=MainScores.main())
-    #thr.start()
-    #threading.Thread(MainScores.main())
-    #os.system(f"py.exe {web_app}")
-    #subprocess.Popen([os.system(web_app)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    subprocess.Popen(["py.exe", self.web_app], stdin=None, stdout=None, stderr=None)
-                     
+                   
   def generic_error(self):
       print("Not a good selection, please enter a valid option! Try again.")
       return
@@ -87,7 +108,10 @@ class Utils:
     for x in input_line:
       print(x, end='')
       sys.stdout.flush()
-      sleep(uniform(0, 0.1))
+      if self.first_round:
+        sleep(uniform(0, 0.1))
+      else:
+        sleep(0)
     
   def find_os(self):
     self.system = platform.system()
